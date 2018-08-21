@@ -1,0 +1,28 @@
+server:
+  port: 8020
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.1.212:3306/bore?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      maximum-pool-size: 15
+
+  jpa:
+    show-sql: true
+
+module:
+  domain:
+    static: http://bgbr-static.oss-cn-shenzhen.aliyuncs.com
+    main: http://localhost:8080
+    cookie: localhost
+
+# Zookeeper
+dubbo:
+  application:
+    name: spring-boot-consumer
+  registry:
+    address: 192.168.1.217:2181

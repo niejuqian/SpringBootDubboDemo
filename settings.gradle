@@ -1,0 +1,6 @@
+rootProject.name = 'SpringBootDubboDemo'
+include 'spring-boot-consumer'
+include 'spring-boot-provider'
+include 'spring-boot-common'
+include 'spring-boot-provider-impl'
+
