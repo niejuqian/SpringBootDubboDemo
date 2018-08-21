@@ -10,9 +10,9 @@
     <!-- 注册中心服务地址 -->
     <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
 
-    <dubbo:protocol name="dubbo" port="30001"/>
+    <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}"/>
 
     <!-- 引用UserService服务-->
-    <dubbo:reference id="userService" version="1.0" interface="com.springboot.dubbo.demo.provider.service.UserService"/>
+    <dubbo:reference id="teacherService" version="1.0" interface="com.springboot.dubbo.demo.provider.service.TeacherService"/>
 
 </beans>

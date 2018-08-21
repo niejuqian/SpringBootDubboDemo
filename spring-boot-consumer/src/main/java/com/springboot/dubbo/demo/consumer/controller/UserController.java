@@ -1,13 +1,17 @@
 package com.springboot.dubbo.demo.consumer.controller;
 
+import com.springboot.dubbo.demo.common.dto.EmptyDto;
+import com.springboot.dubbo.demo.common.web.ValidateException;
+import com.springboot.dubbo.demo.consumer.bean.EditUserDto;
 import com.springboot.dubbo.demo.consumer.bean.UserDto;
+import com.springboot.dubbo.demo.consumer.service.UserService;
 import com.springboot.dubbo.demo.provider.entity.UserEntity;
-import com.springboot.dubbo.demo.provider.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * 这里调用了UserService Dubbo服务
@@ -22,15 +26,23 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/info")
-    @ResponseBody
     public UserDto findUser(String userName){
         UserDto result = new UserDto();
         result.setUserName("未找到");
         UserEntity userEntity = userService.findUser(userName);
         if (null != userEntity) {
-            result.setUserName(userEntity.getName());
-            result.setAge(userEntity.getAge());
+            result.setUserName(userEntity.getUserName());
+            result.setAge(userEntity.getUserAge());
         }
         return result;
+    }
+
+    @PostMapping("/save")
+    public EmptyDto save(@Valid @RequestBody EditUserDto dto, BindingResult result){
+        if (result.hasErrors()) {
+            throw new ValidateException(result.getAllErrors().get(0).getDefaultMessage());
+        }
+        userService.saveInfo(dto.getUserName(),dto.getUserAge(),dto.getTeacherAge());
+        return EmptyDto.build();
     }
 }

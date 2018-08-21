@@ -1,4 +1,4 @@
-package com.springboot.dubbo.demo.provider.service;
+package com.springboot.dubbo.demo.consumer.service;
 
 import com.springboot.dubbo.demo.provider.entity.UserEntity;
 
@@ -14,4 +14,13 @@ public interface UserService {
      * @return
      */
     UserEntity findUser(String userName);
+
+    /**
+     * 保存信息
+     * @param userName 用户姓名
+     * @param userAge 用户年龄
+     * @param teacherAge 老师教龄
+     * @return
+     */
+    boolean saveInfo(String userName,Integer userAge,Integer teacherAge);
 }
