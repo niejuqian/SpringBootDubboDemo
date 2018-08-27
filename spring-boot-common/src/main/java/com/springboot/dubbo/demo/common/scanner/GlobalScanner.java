@@ -24,7 +24,7 @@ public class GlobalScanner {
     public void init() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         ClassPathScanningCandidateComponentProvider scanner = new ClassPathScanningCandidateComponentProvider(false);
         scanner.addIncludeFilter(new AssignableTypeFilter(Scannable.class));
-        for (BeanDefinition beanDefinition : scanner.findCandidateComponents("com.bugongbore.**")) {
+        for (BeanDefinition beanDefinition : scanner.findCandidateComponents("com.springboot.dubbo.demo.**")) {
             Class<? extends Scannable> c = (Class<? extends Scannable>) Class.forName(beanDefinition.getBeanClassName());
             if (Modifier.isAbstract(c.getModifiers())) {
                 continue;

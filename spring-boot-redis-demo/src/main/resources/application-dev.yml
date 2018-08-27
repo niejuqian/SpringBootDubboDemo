@@ -1,0 +1,32 @@
+server:
+  port: 8030
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.1.212:3306/demo_laonie?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      maximum-pool-size: 15
+
+  jpa:
+    show-sql: true
+
+  redis:
+    # 哨兵模式配置
+    # sentinel:
+      # master: mymaster
+      # nodes: 192.168.1.216:26380,192.168.1.216:26381
+    # password: 123456
+    # 单节点模式配置
+    host: 192.168.1.216
+    port: 6379
+
+
+module:
+  domain:
+    static: http://bgbr-static.oss-cn-shenzhen.aliyuncs.com
+    main: http://localhost:8080
+    cookie: localhost

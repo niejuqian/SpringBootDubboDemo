@@ -1,15 +1,18 @@
 package com.springboot.dubbo.demo.consumer.controller;
 
+import com.springboot.dubbo.demo.user.entity.UserEntity;
 import com.springboot.dubbo.demo.common.dto.EmptyDto;
 import com.springboot.dubbo.demo.common.web.ValidateException;
 import com.springboot.dubbo.demo.consumer.bean.EditUserDto;
 import com.springboot.dubbo.demo.consumer.bean.UserDto;
-import com.springboot.dubbo.demo.consumer.service.UserService;
-import com.springboot.dubbo.demo.provider.entity.UserEntity;
+import com.springboot.dubbo.demo.consumer.service.UserAndTeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
@@ -23,13 +26,13 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserAndTeacherService userAndTeacherService;
 
     @GetMapping("/info")
     public UserDto findUser(String userName){
         UserDto result = new UserDto();
         result.setUserName("未找到");
-        UserEntity userEntity = userService.findUser(userName);
+        UserEntity userEntity = userAndTeacherService.findUser(userName);
         if (null != userEntity) {
             result.setUserName(userEntity.getUserName());
             result.setAge(userEntity.getUserAge());
@@ -42,7 +45,7 @@ public class UserController {
         if (result.hasErrors()) {
             throw new ValidateException(result.getAllErrors().get(0).getDefaultMessage());
         }
-        userService.saveInfo(dto.getUserName(),dto.getUserAge(),dto.getTeacherAge());
+        userAndTeacherService.saveInfo(dto.getUserName(),dto.getUserAge(),dto.getTeacherAge());
         return EmptyDto.build();
     }
 }

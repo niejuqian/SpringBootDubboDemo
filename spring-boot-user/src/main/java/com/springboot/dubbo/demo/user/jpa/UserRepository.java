@@ -1,6 +1,6 @@
-package com.springboot.dubbo.demo.consumer.jpa;
+package com.springboot.dubbo.demo.user.jpa;
 
-import com.springboot.dubbo.demo.provider.entity.UserEntity;
+import com.springboot.dubbo.demo.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

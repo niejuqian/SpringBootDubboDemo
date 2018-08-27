@@ -3,4 +3,6 @@ include 'spring-boot-consumer'
 include 'spring-boot-provider'
 include 'spring-boot-common'
 include 'spring-boot-provider-impl'
+include 'spring-boot-redis-demo'
+include 'spring-boot-user'
 

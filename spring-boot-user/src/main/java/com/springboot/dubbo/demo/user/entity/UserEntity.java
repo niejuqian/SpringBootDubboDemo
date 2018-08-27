@@ -1,32 +1,21 @@
-package com.springboot.dubbo.demo.consumer.entity;
+package com.springboot.dubbo.demo.user.entity;
 
-import org.hibernate.annotations.GenericGenerator;
+import com.springboot.dubbo.demo.common.bean.UUIDEntity;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Created by niejiuqian on 2018/8/20.
  */
 @Entity
 @Table(name = "u_user_info")
-public class UserEntity implements Serializable {
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String id;
+public class UserEntity extends UUIDEntity {
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_age")
     private Integer userAge;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;

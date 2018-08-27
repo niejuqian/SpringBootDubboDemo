@@ -1,6 +1,7 @@
-package com.springboot.dubbo.demo.consumer.service;
+package com.springboot.dubbo.demo.user.service;
 
-import com.springboot.dubbo.demo.provider.entity.UserEntity;
+
+import com.springboot.dubbo.demo.user.entity.UserEntity;
 
 /**
  * 此接口为dubbo对外暴露接口定义
@@ -17,10 +18,8 @@ public interface UserService {
 
     /**
      * 保存信息
-     * @param userName 用户姓名
-     * @param userAge 用户年龄
-     * @param teacherAge 老师教龄
+     * @param userEntity 用户姓名
      * @return
      */
-    boolean saveInfo(String userName,Integer userAge,Integer teacherAge);
+    UserEntity save(UserEntity userEntity);
 }
