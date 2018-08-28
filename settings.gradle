@@ -7,4 +7,5 @@ include 'spring-boot-redis-demo'
 include 'spring-boot-user'
 include 'spring-boot-java-demo'
 findProject(':spring-boot-java-demo')?.name = 'java-demo'
+include 'spring-boot-war-demo'
 
