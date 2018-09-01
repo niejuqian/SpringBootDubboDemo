@@ -11,6 +11,15 @@ public class Test {
         System.out.println(weekDay.nextDay());
 
         System.out.println(TrafficLamp.GREEN.nextLamp());
+
+        Test test = new Test();
+        Test test2 = new Test();
+        Class cls1 = test.getClass();
+        Class cls2 = Test.class;
+        System.out.println(cls1 == cls2);
+        Class cls3 = test2.getClass();
+        System.out.println(cls1 == cls3);
+        System.out.println(cls3.isPrimitive());
     }
 
     public enum TrafficLamp{
