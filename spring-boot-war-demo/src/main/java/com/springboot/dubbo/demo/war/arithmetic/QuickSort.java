@@ -37,8 +37,8 @@ public class QuickSort {
             arrs[high] = arrs[low];
         }
         arrs[low] = temp;
-        System.out.println("middle=" + temp);
-        BubbleSort.print("快速排序",arrs);
+        //System.out.println("middle=" + temp);
+       // BubbleSort.print("快速排序",arrs);
         return low;
     }
 }
