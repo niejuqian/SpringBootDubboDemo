@@ -1,11 +1,11 @@
 package com.springboot.dubbo.demo.consumer.controller;
 
-import com.springboot.dubbo.demo.user.entity.UserEntity;
 import com.springboot.dubbo.demo.common.dto.EmptyDto;
 import com.springboot.dubbo.demo.common.web.ValidateException;
 import com.springboot.dubbo.demo.consumer.bean.EditUserDto;
 import com.springboot.dubbo.demo.consumer.bean.UserDto;
 import com.springboot.dubbo.demo.consumer.service.UserAndTeacherService;
+import com.springboot.dubbo.demo.user.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

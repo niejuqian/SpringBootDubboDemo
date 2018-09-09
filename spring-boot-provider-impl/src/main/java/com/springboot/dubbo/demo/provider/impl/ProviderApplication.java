@@ -1,5 +1,6 @@
 package com.springboot.dubbo.demo.provider.impl;
 
+import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -15,6 +16,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableConfigurationProperties
 @ComponentScan(basePackages = "com.springboot.dubbo.demo")
+@DubboComponentScan(basePackages = "com.springboot.dubbo.demo")
 @EntityScan("com.springboot.dubbo.demo.**.entity")
 @EnableJpaRepositories("com.springboot.dubbo.demo.**.jpa")
 public class ProviderApplication {

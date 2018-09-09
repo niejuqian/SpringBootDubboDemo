@@ -15,15 +15,19 @@ public class Test {
     public static int i = 0;
     public static void main(String[] args) throws InterruptedException {
 
+        BThread bThread = new BThread();
+        AThread aThread = new AThread(new Thread(bThread,"bThread"));
+        new Thread(aThread,"aThread").start();
+
         // 自定义线程池
         // 串行执行线程
-        ThreadPool<Thread> singleThreadPool = new SingleThreadPool<>();
+        /*ThreadPool<Thread> singleThreadPool = new SingleThreadPool<>();
         for (int i1 = 0; i1 < 5; i1++) {
             singleThreadPool.executeJob(new Thread(new MyJob(i1 + 1),"MyJob" + i1));
         }
 
         sleepMillis(100);
-        singleThreadPool.shutdown();
+        singleThreadPool.shutdown();*/
 
         // 多线程并发执行
         /*ThreadPool<Thread> muliteThreadPool = new MuliteThreadPool<>();
@@ -80,6 +84,27 @@ public class Test {
         System.out.println("i=" + i);
         System.out.println(".....thread1：" + thread1.getState());
         System.out.println(".....thread2：" + thread2.getState());*/
+    }
+
+    public static class BThread implements Runnable{
+        @Override
+        public void run() {
+            System.out.println("BThread" + Thread.currentThread().getName() + "," + getClass().getName());
+        }
+    }
+
+    public static class AThread implements Runnable{
+
+        private Thread bThread;
+        public AThread(Thread thread) {
+            this.bThread = thread;
+        }
+
+        @Override
+        public void run() {
+            System.out.println("AThread" + Thread.currentThread().getName() + "," + getClass().getName());
+            bThread.start();
+        }
     }
 
     public static class MyJob implements Runnable {

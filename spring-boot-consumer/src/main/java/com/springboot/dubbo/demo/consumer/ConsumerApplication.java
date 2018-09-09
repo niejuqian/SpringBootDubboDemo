@@ -1,5 +1,6 @@
 package com.springboot.dubbo.demo.consumer;
 
+import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableConfigurationProperties
 @ComponentScan(basePackages = "com.springboot.dubbo.demo")
+@DubboComponentScan(basePackages = "com.springboot.dubbo.demo")
 @EntityScan("com.springboot.dubbo.demo.**.entity")
 @EnableJpaRepositories("com.springboot.dubbo.demo.**.jpa")
 @EnableTransactionManagement // 可以不用显示的增加此注解，spring boot在引入相应的orm时，已经默认开启事务支持了

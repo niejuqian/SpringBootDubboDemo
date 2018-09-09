@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://192.168.1.212:3306/demo_laonie?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
+    url: jdbc:mysql://39.108.190.161:3306/bore?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
     username: root
-    password: 123456
+    password: Shyanzhi123@
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
       maximum-pool-size: 15
@@ -27,4 +27,4 @@ dubbo:
   application:
     name: spring-boot-consumer
   registry:
-    address: 192.168.1.217:2181
+    address: zookeeper://47.52.132.127:2181

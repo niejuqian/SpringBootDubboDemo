@@ -1,5 +1,6 @@
 package com.springboot.dubbo.demo.consumer.service;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.springboot.dubbo.demo.provider.entity.TeacherEntity;
 import com.springboot.dubbo.demo.provider.service.TeacherService;
 import com.springboot.dubbo.demo.user.entity.UserEntity;
@@ -18,8 +19,8 @@ public class UserAndTeacherService {
     private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
     private UserService userService;
-    @Autowired
-    private TeacherService teacherService;
+    @Reference
+    public TeacherService teacherService;
 
     public UserEntity findUser(String userName) {
         return userService.findUser(userName);
