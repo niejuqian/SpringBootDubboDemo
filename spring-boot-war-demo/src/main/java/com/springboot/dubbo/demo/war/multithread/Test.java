@@ -3,7 +3,7 @@ package com.springboot.dubbo.demo.war.multithread;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.*;
 
 /**
  * Created by laonie on 2018/9/7.
@@ -15,9 +15,16 @@ public class Test {
     public static int i = 0;
     public static void main(String[] args) throws InterruptedException {
 
+        // 线程池
+        /*ThreadPoolExecutor executor = new ThreadPoolExecutor(1000,10000,10000, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<>());
         BThread bThread = new BThread();
+        Future future = executor.submit(bThread);
+        executor.shutdown();*/
+
+
+        /*BThread bThread = new BThread();
         AThread aThread = new AThread(new Thread(bThread,"bThread"));
-        new Thread(aThread,"aThread").start();
+        new Thread(aThread,"aThread").start();*/
 
         // 自定义线程池
         // 串行执行线程
