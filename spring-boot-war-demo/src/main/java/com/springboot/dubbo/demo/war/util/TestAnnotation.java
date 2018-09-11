@@ -7,7 +7,7 @@ import java.lang.annotation.*;
  * Created by laonie on 2018/9/11.
  */
 @Documented
-// 定义注解声明周期
+// 定义注解生命周期
 @Retention(RetentionPolicy.RUNTIME)
 // 定义注解可以用在哪些地方
 @Target({
