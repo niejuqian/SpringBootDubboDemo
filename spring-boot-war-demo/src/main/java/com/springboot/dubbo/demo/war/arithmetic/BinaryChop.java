@@ -8,6 +8,25 @@ import java.util.Arrays;
  */
 public class BinaryChop {
 
+    public static int execute(int[] arrs,int start,int end,int key) {
+        int middle = (end - start) / 2 + start;
+        int result = -1;
+        int middleVal = arrs[middle];
+        if (middleVal == key) {
+            result = middle;
+        } else {
+            int tmpStart = start,tmpEnd = end;
+            if (middleVal > key) {
+                // 则在左边查找
+                tmpEnd = middle-1;
+            } else {
+                tmpStart = middle + 1;
+            }
+            result = execute(arrs,tmpStart,tmpEnd,key);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         int[] arrs = {23,15,3,17,78,34,29,135};
         // 首先要进行排序
@@ -15,14 +34,21 @@ public class BinaryChop {
         BubbleSort.print("排序",arrs);
         int key = 34;
         System.out.println("递归查找实现方案：");
-        int position = binaryByRecursion(arrs,0,arrs.length - 1,34);
+        int position = binaryByRecursion(arrs,0,arrs.length - 1,key);
         if (position == -1) {
             System.out.println("未找到值为：" + key + " 在数组中的位置");
         } else {
             System.out.println("查找成功，值：" + key + " 在数组的第：" + (position + 1) + "个位置");
         }
         System.out.println("普通循环实现方案：");
-        position = binaryByWhile(arrs,34);
+        position = binaryByWhile(arrs,key);
+        if (position == -1) {
+            System.out.println("未找到值为：" + key + " 在数组中的位置");
+        } else {
+            System.out.println("查找成功，值：" + key + " 在数组的第：" + (position + 1) + "个位置");
+        }
+        System.out.println("递归查找实现方案2：");
+        position = execute(arrs,0,arrs.length -1,key);
         if (position == -1) {
             System.out.println("未找到值为：" + key + " 在数组中的位置");
         } else {
