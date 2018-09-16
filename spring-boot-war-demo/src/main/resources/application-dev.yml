@@ -1,4 +1,8 @@
 server:
+  connection-timeout: 3000 # 超时时间
+  tomcat:
+    max-threads: 200       # 最大线程数
+    min-spare-threads: 20  # 初始化线程数
   port: 8040
 
 spring:
