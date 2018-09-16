@@ -41,6 +41,10 @@ dependencies {
     compile("mysql:mysql-connector-java")
 
     compile("com.zaxxer:HikariCP:2.6.2")
+    // https://mvnrepository.com/artifact/com.alibaba/druid
+    compile('com.alibaba:druid:1.1.10')
+
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     compile group: 'com.alibaba', name: 'dubbo', version: '2.6.2'
