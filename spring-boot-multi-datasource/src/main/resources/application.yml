@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    bore: DEBUG
+    ROOT: INFO
+
+module:
+  code: multi-datasource
+  prefix: app
+  uri:
+    login: login
+    forbidden: /forbidden
+    notFound: /404
+    forceExit: /forceExit
+  page:
+    notFound: core/notFound
+    error: core/error
+  ajax:
+    notFound: core/notFoundAjax
+    error: core/errorAjax
