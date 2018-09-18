@@ -16,7 +16,7 @@ public class DataSourceConfigure {
      * 使用druid数据库连接池
      * @return
      */
-    @Bean
+    @Bean(name = "testDataSource")
     @Qualifier("testDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.test")
     @Primary
@@ -28,7 +28,7 @@ public class DataSourceConfigure {
      * 使用HikariCp数据库连接池
      * @return
      */
-    @Bean
+    @Bean(name = "test1DataSource")
     @Qualifier("test1DataSource")
     @ConfigurationProperties(prefix = "spring.datasource.test1")
     public DruidDataSource test1DataSource(){
