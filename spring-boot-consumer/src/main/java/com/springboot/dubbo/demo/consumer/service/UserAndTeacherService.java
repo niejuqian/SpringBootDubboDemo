@@ -42,4 +42,11 @@ public class UserAndTeacherService {
         teacherService.save(teacherEntity);
         return true;
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public boolean saveTest(String userName, Integer userAge, Integer teacherAge) {
+        saveInfo(userName,userAge,teacherAge);
+        int i = 5 / 0;
+        return true;
+    }
 }

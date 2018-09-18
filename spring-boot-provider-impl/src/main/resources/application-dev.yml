@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://39.108.190.161:3306/bore?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
+    url: jdbc:mysql://39.108.190.161:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
     username: root
     password: Shyanzhi123@
     driver-class-name: com.mysql.jdbc.Driver

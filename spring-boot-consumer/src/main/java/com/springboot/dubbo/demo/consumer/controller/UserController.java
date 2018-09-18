@@ -48,4 +48,13 @@ public class UserController {
         userAndTeacherService.saveInfo(dto.getUserName(),dto.getUserAge(),dto.getTeacherAge());
         return EmptyDto.build();
     }
+
+    @PostMapping("/test/tr")
+    public EmptyDto saveTest(@Valid @RequestBody EditUserDto dto, BindingResult result) {
+        if (result.hasErrors()) {
+            throw new ValidateException(result.getAllErrors().get(0).getDefaultMessage());
+        }
+        userAndTeacherService.saveTest(dto.getUserName(),dto.getUserAge(),dto.getTeacherAge());
+        return EmptyDto.build();
+    }
 }
